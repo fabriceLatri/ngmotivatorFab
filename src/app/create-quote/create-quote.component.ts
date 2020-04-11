@@ -22,13 +22,10 @@ export class CreateQuoteComponent implements OnInit {
   }
 
   createQuote() {
-    console.log('form valid', this.form.valid);
-
     if (this.form.valid) {
       // Création d'un event custom.
 
       this.create.emit(this.form);
-
 
     }
   }
