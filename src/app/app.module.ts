@@ -8,13 +8,16 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+// services
+import { QuotesService } from './services/quotes.service';
+
 // custom components
 import { AppComponent } from './app.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { CreateQuoteComponent } from './create-quote/create-quote.component';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component'; 
-// services
-import { QuotesService } from './services/quotes.service';
+import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
+import { BackendQuotesComponent } from './backend/backend-quotes/backend-quotes.component';
 
 
 
@@ -30,7 +33,7 @@ const CONFIG: FirebaseAppConfig = {
 const ROUTES: Routes = [
   { path: '', pathMatch: 'full', component: QuoteDetailsComponent },
   { path: 'quote/:id', component: QuoteDetailsComponent },
-  { path: 'admin', component: CreateQuoteComponent }
+  { path: 'admin', component: BackendHomeComponent }
 ];
 
 @NgModule({
@@ -38,7 +41,9 @@ const ROUTES: Routes = [
     AppComponent,
     QuotesComponent,
     CreateQuoteComponent,
-    QuoteDetailsComponent
+    QuoteDetailsComponent,
+    BackendHomeComponent,
+    BackendQuotesComponent
   ],
   imports: [
     BrowserModule,

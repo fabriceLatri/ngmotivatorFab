@@ -18,7 +18,6 @@ export class QuotesComponent implements OnInit {
 
   showQuoteDetails(quote) {
     this.router.navigate(['/quote', quote.key]);
-    console.log('router: ', this.router);
   }
 
 }

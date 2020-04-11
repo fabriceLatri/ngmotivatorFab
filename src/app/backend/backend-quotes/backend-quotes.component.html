@@ -1,0 +1,4 @@
+<ul>
+  <li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">
+    <button (click)="deleteQuote(quote)">Suppr</button>{{ quote.text }}</li>
+</ul>
