@@ -14,7 +14,7 @@ import { QuotesService } from './services/quotes.service';
 // custom components
 import { AppComponent } from './app.component';
 import { QuotesComponent } from './quotes/quotes.component';
-import { CreateQuoteComponent } from './create-quote/create-quote.component';
+import { CreateQuoteComponent } from './backend/create-quote/create-quote.component';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component'; 
 import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
 import { BackendQuotesComponent } from './backend/backend-quotes/backend-quotes.component';
@@ -31,7 +31,7 @@ const CONFIG: FirebaseAppConfig = {
 }; 
 
 const ROUTES: Routes = [
-  { path: '', pathMatch: 'full', component: QuoteDetailsComponent },
+  { path: '', pathMatch: 'full', component: QuotesComponent },
   { path: 'quote/:id', component: QuoteDetailsComponent },
   { path: 'admin', component: BackendHomeComponent }
 ];

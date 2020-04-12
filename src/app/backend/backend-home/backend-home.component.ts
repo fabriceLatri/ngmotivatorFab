@@ -20,6 +20,17 @@ export class BackendHomeComponent implements OnInit {
 
     console.log('addedQuote: ', addedQuote);
   }
+
+  onQuoteUpdated(quote) {
+    console.log(quote);
+
+    let updatedQuote = this.quoteService.updateQuote({
+      firstname: quote.value.firstname,
+      lastname: quote.value.lastname,
+      text: quote.value.quote,
+      key: quote.value.key,
+    });
+  }
   ngOnInit() {
   }
 

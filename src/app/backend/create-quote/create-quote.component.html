@@ -1,9 +1,10 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="createQuote()">
+  <form [formGroup]="form" (ngSubmit)="saveQuote()">
     <input type="text" formControlName="firstname" placeholder="prénom de l'auteur"><br>
     <input type="text" formControlName="lastname" placeholder="nom de l'auteur"><br>
     <textarea formControlName="quote" cols="30" rows="10" placeholder="citation"></textarea><br>
-    <button>Ajouter la citation</button>
+    <button>{{ verb }} la citation</button>
+    <button *ngIf="isInEditMode" (click) = "cancelEdit()">Annuler les modifications</button>
   </form>
 </div>
 

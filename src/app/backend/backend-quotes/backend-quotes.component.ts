@@ -17,14 +17,18 @@ export class BackendQuotesComponent implements OnInit {
   ngOnInit() {
     this.quotes$ = this.quotesService.getQuotes();
   }
-
-  showQuoteDetails(quote) {
-    // this.router.navigate(['/quote', quote.key]);
-  }
-
+  
   deleteQuote(quote) {
     console.log("quote deleted ", quote);
     this.quotesService.deleteQuoteById(quote.key)
+  }
+
+  showQuoteDetails(quote) {
+
+  }
+
+  toggleToEditMode(quote) {
+    this.quotesService.editMode(quote);
   }
 
 }
