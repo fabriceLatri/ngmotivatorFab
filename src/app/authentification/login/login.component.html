@@ -1,0 +1,11 @@
+<h3>Se connecter</h3>
+
+<div>
+  <form #login="ngForm" (submit)="loginUser()">
+    <input type="email" name="email" placeholder="Email" [(ngModel)]="existingUser.email">
+    <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
+    <button type="submit">Se connecter</button>
+  </form>
+</div>
+
+{{ login.value | json }}

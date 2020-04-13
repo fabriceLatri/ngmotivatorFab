@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 // firebase
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 // services
 import { QuotesService } from './services/quotes.service';
+import { AuthService } from './authentification/services/auth.service';
 
 // custom components
 import { AppComponent } from './app.component';
@@ -18,6 +20,8 @@ import { CreateQuoteComponent } from './backend/create-quote/create-quote.compon
 import { QuoteDetailsComponent } from './quote-details/quote-details.component'; 
 import { BackendHomeComponent } from './backend/backend-home/backend-home.component';
 import { BackendQuotesComponent } from './backend/backend-quotes/backend-quotes.component';
+import { RegisterUserComponent } from './authentification/register-user/register-user.component';
+import { LoginComponent } from './authentification/login/login.component';
 
 
 
@@ -43,18 +47,22 @@ const ROUTES: Routes = [
     CreateQuoteComponent,
     QuoteDetailsComponent,
     BackendHomeComponent,
-    BackendQuotesComponent
+    BackendQuotesComponent,
+    RegisterUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(CONFIG),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    QuotesService
+    QuotesService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

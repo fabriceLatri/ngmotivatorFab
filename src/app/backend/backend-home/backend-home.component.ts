@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackendHomeComponent implements OnInit {
   
+  toggleRegisterLogin: boolean = false;
+
   constructor(private quoteService: QuotesService) { }
 
   onQuoteCreated(quote) {
@@ -32,6 +34,12 @@ export class BackendHomeComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+
+  toggleEditRegisterLogin(): void {
+    console.log('je rentre dans toggleEditRegisterLogin')
+    this.toggleRegisterLogin = !this.toggleRegisterLogin;
+    console.log(this.toggleRegisterLogin);
   }
 
 }

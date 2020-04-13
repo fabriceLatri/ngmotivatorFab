@@ -1,3 +1,6 @@
+<h2>Accueil</h2>
+<a routerLink="/admin">admin</a>
+<hr>
 <ul>
     <li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">{{ quote.text }}</li>
   </ul>
