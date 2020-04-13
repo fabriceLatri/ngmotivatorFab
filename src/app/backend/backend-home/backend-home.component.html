@@ -4,7 +4,7 @@
 <app-login *ngIf="!toggleRegisterLogin"></app-login>
 <app-register-user *ngIf="toggleRegisterLogin"></app-register-user>
 <br>
-<a (click)="toggleEditRegisterLogin()">S'inscrire/Se connecter</a>
+<a (click)="toggleEditRegisterLogin()" *ngIf="!(authService.user$ | async)">S'inscrire/Se connecter</a>
 <br>
 <br>
 <app-create-quote (create)="onQuoteCreated($event)" (update) = "onQuoteUpdated($event)"></app-create-quote>

@@ -1,5 +1,5 @@
 import { AuthService } from './../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   existingUser = {
     email: '',
     password: ''
-  } 
+  }
 
   constructor(private authService: AuthService) { }
 
@@ -26,4 +26,7 @@ export class LoginComponent implements OnInit {
       .catch(error => console.error(error.message));
   }
 
+  logoutUser() {
+    this.authService.logout();
+  }
 }

@@ -1,3 +1,4 @@
+import { AuthService } from './../../authentification/services/auth.service';
 import { QuotesService } from './../../services/quotes.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class BackendHomeComponent implements OnInit {
   
   toggleRegisterLogin: boolean = false;
+  linkConnectHidden: boolean = false;
 
-  constructor(private quoteService: QuotesService) { }
+  constructor(private quoteService: QuotesService, public authService: AuthService) { }
 
   onQuoteCreated(quote) {
     console.log('quote retrived ', quote);
@@ -41,5 +43,4 @@ export class BackendHomeComponent implements OnInit {
     this.toggleRegisterLogin = !this.toggleRegisterLogin;
     console.log(this.toggleRegisterLogin);
   }
-
 }

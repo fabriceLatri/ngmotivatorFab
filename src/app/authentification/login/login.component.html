@@ -1,11 +1,14 @@
-<h3>Se connecter</h3>
+<h3 *ngIf="!(authService.user$ | async)">Se connecter</h3>
 
 <div>
-  <form #login="ngForm" (submit)="loginUser()">
+  <form #login="ngForm" (submit)="loginUser()" *ngIf="!(authService.user$ | async)">
     <input type="email" name="email" placeholder="Email" [(ngModel)]="existingUser.email">
     <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
     <button type="submit">Se connecter</button>
   </form>
 </div>
 
-{{ login.value | json }}
+<div>
+  <span *ngIf="(authService.user$ | async)">Connecté en tant que {{ (authService.user$ | async)?.email }}</span>
+  <button type="button" (click)="logoutUser()">Se déconnecter</button>
+</div>
