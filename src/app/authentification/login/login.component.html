@@ -8,7 +8,8 @@
   </form>
 </div>
 
-<div>
+<div *ngIf="(authService.user$ | async)">
   <span *ngIf="(authService.user$ | async)">Connecté en tant que {{ (authService.user$ | async)?.email }}</span>
   <button type="button" (click)="logoutUser()">Se déconnecter</button>
+  <button (click)="authService.sendEmailVerification()">Envoyer un mail de vérification</button>
 </div>

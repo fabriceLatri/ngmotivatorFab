@@ -25,4 +25,14 @@ export class AuthService {
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  sendEmailVerification() {
+    const currentUser = firebase.auth().currentUser;
+
+    if (currentUser) {
+      currentUser.sendEmailVerification()
+        .then(() => console.log('email sent'))
+        .catch(error => console.error('error email sending: ', error));
+    }
+  }
 }
