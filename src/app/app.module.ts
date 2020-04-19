@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // firebase
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { MaterialModule } from "./MaterialModule";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -58,7 +61,9 @@ const ROUTES: Routes = [
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     QuotesService,

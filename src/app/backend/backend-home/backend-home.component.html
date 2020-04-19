@@ -1,11 +1,19 @@
-<h2>Administration</h2>
+<mat-toolbar color="primary">Administration</mat-toolbar>
+
 <a routerLink="/">front</a>
-<hr>
-<app-login *ngIf="!toggleRegisterLogin"></app-login>
-<app-register-user *ngIf="toggleRegisterLogin"></app-register-user>
-<br>
-<a (click)="toggleEditRegisterLogin()" *ngIf="!(authService.user$ | async)">S'inscrire/Se connecter</a>
-<br>
-<br>
-<app-create-quote (create)="onQuoteCreated($event)" (update) = "onQuoteUpdated($event)"></app-create-quote>
-<app-backend-quotes></app-backend-quotes>
+<mat-tab-group>
+    <mat-tab label="Connexion">
+        <app-login *ngIf="!toggleRegisterLogin"></app-login>
+    </mat-tab>
+    <mat-tab label="Inscription" *ngIf="!(authService.user$ | async)">
+        <app-register-user></app-register-user>
+    </mat-tab>
+    <mat-tab label="Citation">
+        <app-create-quote (create)="onQuoteCreated($event)" (update) = "onQuoteUpdated($event)"></app-create-quote>
+        <app-backend-quotes></app-backend-quotes>
+    </mat-tab>
+    <mat-tab label="Contact">
+        <h3>Téléphone:</h3>
+        <div>06 06 06 06 06</div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,6 +1,10 @@
-<h2>Toutes les citations</h2>
+<mat-toolbar color="primary">Toutes les citations</mat-toolbar>
 <a routerLink="/admin">admin</a>
 <hr>
 <ul>
-    <li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">{{ quote.text }}</li>
+    <li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)">
+      <mat-card>
+        {{ quote.text }}
+      </mat-card>
+    </li>
   </ul>
