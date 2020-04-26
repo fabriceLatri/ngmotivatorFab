@@ -1,10 +1,17 @@
 <div>
   <form [formGroup]="form" (ngSubmit)="saveQuote()">
-    <input type="text" formControlName="firstname" placeholder="prénom de l'auteur"><br>
-    <input type="text" formControlName="lastname" placeholder="nom de l'auteur"><br>
-    <textarea formControlName="quote" cols="30" rows="10" placeholder="citation"></textarea><br>
-    <button>{{ verb }} la citation</button>
-    <button *ngIf="isInEditMode" (click) = "cancelEdit()">Annuler les modifications</button>
+    <mat-form-field>
+      <input matInput type="text" formControlName="firstname" placeholder="prénom de l'auteur"><br>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="lastname" placeholder="nom de l'auteur"><br>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="quote" cols="30" rows="10" placeholder="citation"></textarea><br>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">{{ verb }} la citation</button>
+    <button mat-raised-button color="primary" *ngIf="isInEditMode" (click) = "cancelEdit()">Annuler les modifications</button>
   </form>
 </div>
 

@@ -2,14 +2,18 @@
 
 <div>
   <form #login="ngForm" (submit)="loginUser()" *ngIf="!(authService.user$ | async)">
-    <input type="email" name="email" placeholder="Email" [(ngModel)]="existingUser.email">
-    <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
-    <button type="submit">Se connecter</button>
+    <mat-form-field>
+      <input matInput type="email" name="email" placeholder="Email" [(ngModel)]="existingUser.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" name="password" placeholder="Mot de passe" [(ngModel)]="existingUser.password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Se connecter</button>
   </form>
 </div>
 
 <div *ngIf="(authService.user$ | async)">
   <span *ngIf="(authService.user$ | async)">Connecté en tant que {{ (authService.user$ | async)?.email }}</span>
-  <button type="button" (click)="logoutUser()">Se déconnecter</button>
-  <button (click)="authService.sendEmailVerification()">Envoyer un mail de vérification</button>
+  <button mat-button color="warn" type="button" (click)="logoutUser()">Se déconnecter</button>
+  <button mat-button color="primary"(click)="authService.sendEmailVerification()">Envoyer un mail de vérification</button>
 </div>

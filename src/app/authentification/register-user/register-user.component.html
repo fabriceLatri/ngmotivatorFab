@@ -2,8 +2,12 @@
 
 <div>
   <form #f="ngForm" (submit)="registerUser()">
-    <input type="email" name="email" placeholder="Email" [(ngModel)]="newUser.email">
-    <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="newUser.password">
-    <button type="submit">Créer un compte</button>
+    <mat-form-field>
+      <input matInput type="email" name="email" placeholder="Email" [(ngModel)]="newUser.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" name="password" placeholder="Mot de passe" [(ngModel)]="newUser.password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Créer un compte</button>
   </form>
 </div>
